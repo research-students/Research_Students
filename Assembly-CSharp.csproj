@@ -61,6 +61,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Tmp.cs" />
+    <None Include="Assets\Animations\README.txt" />
+    <None Include="Assets\Fonts\README.txt" />
+    <None Include="Assets\Physics Materials\README.txt" />
+    <None Include="Assets\Materials\README.txt" />
+    <None Include="Assets\Import Package\README.txt" />
+    <None Include="Assets\Prefabs\README.txt" />
+    <None Include="Assets\Audio\README.txt" />
+    <None Include="Assets\Models\README.txt" />
+    <None Include="Assets\Scenes\README.txt" />
+    <None Include="Assets\Textures\README.txt" />
+    <None Include="Assets\Resources\README.txt" />
+    <None Include="Assets\Scripts\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Project Data/Unity Project/Research_Students/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
