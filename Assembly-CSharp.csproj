@@ -60,7 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Tmp.cs" />
+    <Compile Include="Assets\Scripts\GameFlow_CoverScene.cs" />
+    <Compile Include="Assets\Scripts\GameFlow_LoadScene.cs" />
     <None Include="Assets\Animations\README.txt" />
     <None Include="Assets\Fonts\README.txt" />
     <None Include="Assets\Physics Materials\README.txt" />
@@ -72,7 +73,6 @@
     <None Include="Assets\Scenes\README.txt" />
     <None Include="Assets\Textures\README.txt" />
     <None Include="Assets\Resources\README.txt" />
-    <None Include="Assets\Scripts\README.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/Project Data/Unity Project/Research_Students/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
