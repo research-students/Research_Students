@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Works/Funaoka/Tmp_Scene_Stage.unity
+- path: Assets/Works/Funaoka/Scenes/Tmp_Prototype_Stage.unity
   isLoaded: 1
   isActive: 1

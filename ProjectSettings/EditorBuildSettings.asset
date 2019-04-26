@@ -6,18 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Works/Funaoka/Tmp_Scene_Title.unity
+    path: Assets/Works/Funaoka/Scenes/Tmp_Scene_Title.unity
     guid: 92014ae07d6c5a245984286f870af7fc
   - enabled: 1
-    path: Assets/Works/Funaoka/Tmp_Scene_Stage.unity
+    path: Assets/Works/Funaoka/Scenes/Tmp_Scene_Stage.unity
     guid: f8650a2d6031a2f45afd6c2313dc5ae3
   - enabled: 1
-    path: Assets/Works/Funaoka/Tmp_Scene_Pause.unity
+    path: Assets/Works/Funaoka/Scenes/Tmp_Scene_Pause.unity
     guid: 8406f93907cb62e489849888e42ec88d
   - enabled: 1
-    path: Assets/Works/Funaoka/Tmp_Scene_GameClear.unity
+    path: Assets/Works/Funaoka/Scenes/Tmp_Scene_GameClear.unity
     guid: 7cf939d17dc31174ca4e3a0fda040cc7
   - enabled: 1
-    path: Assets/Works/Funaoka/Tmp_Scene_GameOver.unity
+    path: Assets/Works/Funaoka/Scenes/Tmp_Scene_GameOver.unity
     guid: 4199228b5ac8efa41b046433b1fee524
+  - enabled: 1
+    path: Assets/Works/Funaoka/Scenes/Tmp_Prototype_Stage.unity
+    guid: 330cd79f61d4f284b85463a56f8ebb7d
   m_configObjects: {}
