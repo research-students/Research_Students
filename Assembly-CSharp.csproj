@@ -64,8 +64,10 @@
     <Compile Include="Assets\Scripts\GameFlow_LoadScene.cs" />
     <Compile Include="Assets\Scripts\MouseAction_Drag.cs" />
     <Compile Include="Assets\Scripts\MouseAction_Flick.cs" />
-    <Compile Include="Assets\Scripts\Player_DragAction.cs" />
+    <Compile Include="Assets\Scripts\MouseAction_Tap.cs" />
+    <Compile Include="Assets\Scripts\PlayerAction_Drag.cs" />
     <Compile Include="Assets\Scripts\PlayerAction_Flick.cs" />
+    <Compile Include="Assets\Scripts\PlayerAction_Tap.cs" />
     <None Include="Assets\Animations\README.txt" />
     <None Include="Assets\Fonts\README.txt" />
     <None Include="Assets\Physics Materials\README.txt" />

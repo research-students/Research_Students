@@ -4,28 +4,20 @@ using UnityEngine;
 
 public class PlayerAction_Flick : MonoBehaviour
 {
-    public enum DIRECTION
+    public void Flick_Up()
     {
-        UP,
-        LEFT,
-        RIGHT,
-        DOWN
+        Debug.Log("上フリック");
     }
 
 
-    public void Flick(DIRECTION _direction)// 方向を取得
+    public void Flick_Left()
     {
-        switch (_direction)
-        {
-            case DIRECTION.UP:
-                Debug.Log("上フリック");
-                break;
-            case DIRECTION.LEFT:
-                Debug.Log("左フリック");
-                break;
-            case DIRECTION.RIGHT:
-                Debug.Log("右フリック");
-                break;
-        }
+        Debug.Log("左フリック");
+    }
+
+
+    public void Flick_Right()
+    {
+        Debug.Log("右フリック");
     }
 }

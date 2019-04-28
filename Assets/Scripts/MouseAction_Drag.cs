@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseAction_Drag : MonoBehaviour
 {
-    [SerializeField] Player_DragAction player;
+    [SerializeField] PlayerAction_Drag player;
 
     private bool    drag;
     private float   arrange;

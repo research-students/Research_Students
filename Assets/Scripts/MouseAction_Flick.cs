@@ -5,60 +5,55 @@ using UnityEngine;
 public class MouseAction_Flick : MonoBehaviour
 {
     [SerializeField] PlayerAction_Flick player;
-    [SerializeField] float              drag;
-    [SerializeField] float              flick;
+    [SerializeField] float              limit_drag;
+    [SerializeField] float              limit_flick;
 
     private float   amount;
-    private Vector3 dragging;
+    private Vector3 dif;
+    private Vector3 pos;
 
 
     public void Drag()
     {
-        float mag = (dragging - Input.mousePosition).magnitude;
+        dif = Input.mousePosition - pos;
 
-        if (mag > drag)
+        if (dif.magnitude > limit_drag)
         {
-            amount += mag;
+            amount += dif.magnitude;
         }
         else
         {
             amount = 0.0f;
         }
 
-        dragging = Input.mousePosition;
+        pos = Input.mousePosition;
     }
 
 
     public void EndDrag()
     {
-        if (amount > flick)
+        if (amount > limit_flick)
         {
-            amount = 0.0f;
-
-            Vector2 dir = Input.mousePosition - dragging;
-
-            if (Mathf.Pow(dir.y, 2) > Mathf.Pow(dir.x, 2))
+            if (Mathf.Pow(dif.y, 2) > Mathf.Pow(dif.x, 2))
             {
-                if (dir.y > 0.0f)
+                if (dif.y > 0.0f)
                 {
-                    player.Flick(PlayerAction_Flick.DIRECTION.UP);
-                }
-                else
-                {
-                    return;
+                    player.Flick_Up();
                 }
             }
             else
             {
-                if (dir.x < 0.0f)
+                if (dif.x < 0.0f)
                 {
-                    player.Flick(PlayerAction_Flick.DIRECTION.LEFT);
+                    player.Flick_Left();
                 }
                 else
                 {
-                    player.Flick(PlayerAction_Flick.DIRECTION.RIGHT);
+                    player.Flick_Right();
                 }
             }
         }
+
+        amount = 0.0f;
     }
 }
