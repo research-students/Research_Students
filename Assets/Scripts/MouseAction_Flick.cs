@@ -4,56 +4,25 @@ using UnityEngine;
 
 public class MouseAction_Flick : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Flick player;
-    [SerializeField] float              limit_drag;
-    [SerializeField] float              limit_flick;
+    [SerializeField] PlayerAction_Flick action;
+    [SerializeField] float              limit_mag;
 
-    private float   amount;
-    private Vector3 dif;
     private Vector3 pos;
 
 
-    public void Drag()
+    public void Touch()
     {
-        dif = Input.mousePosition - pos;
-
-        if (dif.magnitude > limit_drag)
-        {
-            amount += dif.magnitude;
-        }
-        else
-        {
-            amount = 0.0f;
-        }
-
         pos = Input.mousePosition;
     }
 
 
-    public void EndDrag()
+    public void Up()
     {
-        if (amount > limit_flick)
-        {
-            if (Mathf.Pow(dif.y, 2) > Mathf.Pow(dif.x, 2))
-            {
-                if (dif.y > 0.0f)
-                {
-                    player.Flick_Up();
-                }
-            }
-            else
-            {
-                if (dif.x < 0.0f)
-                {
-                    player.Flick_Left();
-                }
-                else
-                {
-                    player.Flick_Right();
-                }
-            }
-        }
+        Vector2 dir = Input.mousePosition - pos;
 
-        amount = 0.0f;
+        if (dir.magnitude > limit_mag)
+        {
+            action.Flick(dir);
+        }
     }
 }

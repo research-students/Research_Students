@@ -4,39 +4,33 @@ using UnityEngine;
 
 public class MouseAction_Drag : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Drag player;
+    [SerializeField] PlayerAction_Run action;
 
-    private bool    drag;
-    private float   arrange;
-    private Vector2 beginDrag;
+    private bool  down;
+    private float posX;
 
 
-    void Start()
+    void Update()
     {
-        // 画面サイズ違いでの速度の差をなくす
-        arrange = 1242.0f / Screen.width;
-    }
-
-
-    void FixedUpdate()
-    {
-        if (drag)
+        if (down)
         {
-            player.GetAmount(arrange * (Input.mousePosition.x - beginDrag.x));
+            float dif = Input.mousePosition.x - posX;
+
+            action.Drag(dif);
         }
     }
 
 
-    public void BeginDrag()
+    public void Down()
     {
-        drag      = true;
-        beginDrag = Input.mousePosition;
+        down = true;
+        posX = Input.mousePosition.x;
     }
 
 
-    public void EndDrag()
+    public void Up()
     {
-        drag      = false;
-        beginDrag = Vector2.zero;
+        down = false;
+        posX = 0.0f;
     }
 }

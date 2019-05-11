@@ -4,39 +4,42 @@ using UnityEngine;
 
 public class MouseAction_Tap : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Tap player;
-    [SerializeField] int              maxLimit;
+    [SerializeField] PlayerAction_Attack action;
+    [SerializeField] float               limit_time;
+    [SerializeField] float               limit_mag;
 
-    private bool tap;
-    private int  limit;
+    private Vector3 pos;
+    private bool    down;
 
 
-    void Update()
+    private IEnumerator Limit()
     {
-        if (tap)
-        {
-            limit++;
-        }
+        yield return new WaitForSeconds(limit_time);
+
+        down = false;
     }
 
 
     public void Down()
     {
-        tap = true;
+        down = true;
+        pos  = Input.mousePosition;
+
+        StartCoroutine("Limit");
     }
 
 
     public void Up()
     {
-        if (tap)
+        if (down)
         {
-            if (limit < maxLimit)
-            {
-                player.Tap();
-            }
+            // flickと被らないように
+            float mag = (Input.mousePosition - pos).magnitude;
 
-            tap   = false;
-            limit = 0;
+            if (mag < limit_mag)
+            {
+                action.Tap();
+            }
         }
     }
 }
