@@ -39,7 +39,7 @@ public class MouseAction_LongTap : MonoBehaviour
 
         if (down_long)
         {
-            // flickと被らないように
+            // ロングタップは指を動かさない
             float mag = (Input.mousePosition - pos).magnitude;
 
             if (mag < limit_mag)

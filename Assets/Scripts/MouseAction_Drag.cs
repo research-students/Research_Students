@@ -5,6 +5,7 @@ using UnityEngine;
 public class MouseAction_Drag : MonoBehaviour
 {
     [SerializeField] PlayerAction_Run action;
+    [SerializeField] float            limit_time;
 
     private bool  down;
     private float posX;
@@ -21,15 +22,26 @@ public class MouseAction_Drag : MonoBehaviour
     }
 
 
+    private IEnumerator Limit()
+    {
+        yield return new WaitForSeconds(limit_time);
+
+        down = true;
+    }
+
+
     public void Down()
     {
-        down = true;
         posX = Input.mousePosition.x;
+
+        StartCoroutine("Limit");
     }
 
 
     public void Up()
     {
+        StopCoroutine("Limit");
+
         down = false;
         posX = 0.0f;
     }

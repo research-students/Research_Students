@@ -33,7 +33,7 @@ public class MouseAction_Tap : MonoBehaviour
     {
         if (down)
         {
-            // flickと被らないように
+            // タップは指を動かさない
             float mag = (Input.mousePosition - pos).magnitude;
 
             if (mag < limit_mag)

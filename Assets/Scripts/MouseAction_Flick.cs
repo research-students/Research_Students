@@ -9,7 +9,7 @@ public class MouseAction_Flick : MonoBehaviour
 
     private Vector3 pos;
 
-
+    
     public void Touch()
     {
         pos = Input.mousePosition;
