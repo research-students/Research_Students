@@ -33,6 +33,12 @@ public class PlayerAction_Run : MonoBehaviour
     }
 
 
+    public float Get_Run_amount()
+    {
+        return run_amount;
+    }
+
+
     //---------------------
     // ドラッグアクション
     //---------------------

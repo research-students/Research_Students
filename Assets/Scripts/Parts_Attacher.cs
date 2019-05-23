@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Parts_Attacher : MonoBehaviour
 {
-    private Parts_SearchEmpty empty;
-    private Transform         target;
+    private Parts_Get_Empty get_empty;
+    private Transform       target;
 
 
     void Start()
     {
-        empty = GameObject.Find("Parts_Target").GetComponent<Parts_SearchEmpty>();
+        get_empty = GameObject.Find("Parts_SetTarget").GetComponent<Parts_Get_Empty>();
     }
 
 
@@ -19,23 +19,23 @@ public class Parts_Attacher : MonoBehaviour
         if (col.gameObject.tag == "Player")
         {
             // 空のbodyを取得
-            target = empty.GetEmpty_Body(tag);
+            target = get_empty.Body(tag);
 
             if (target)
             {
-                // パーツをBodyModeへ、そしてアタッチ
-                gameObject.AddComponent<Parts_BodyMode>().Attach(target);
+                // パーツをModeBodyへ、そしてアタッチ
+                gameObject.AddComponent<Parts_ModeBody>().Attach(target);
 
                 return;
             }
 
             // 空のslotを取得
-            target = empty.GetEmpty_Slot();
+            target = get_empty.Slot();
 
             if (target)
             {
-                // パーツをSlotModeへ、そしてアタッチ
-                gameObject.AddComponent<Parts_SlotMode>().Attach(target);
+                // パーツをModeSlotへ、そしてアタッチ
+                gameObject.AddComponent<Parts_ModeSlot>().Attach(target);
             }
         }
     }

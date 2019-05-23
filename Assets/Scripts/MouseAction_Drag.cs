@@ -8,14 +8,14 @@ public class MouseAction_Drag : MonoBehaviour
     [SerializeField] float            limit_time;
 
     private bool  down;
-    private float posX;
+    private float pos_x;
 
 
     void Update()
     {
         if (down)
         {
-            float dif = Input.mousePosition.x - posX;
+            float dif = Input.mousePosition.x - pos_x;
 
             action.Drag(dif);
         }
@@ -32,7 +32,7 @@ public class MouseAction_Drag : MonoBehaviour
 
     public void Down()
     {
-        posX = Input.mousePosition.x;
+        pos_x = Input.mousePosition.x;
 
         StartCoroutine("Limit");
     }
@@ -42,7 +42,7 @@ public class MouseAction_Drag : MonoBehaviour
     {
         StopCoroutine("Limit");
 
-        down = false;
-        posX = 0.0f;
+        down  = false;
+        pos_x = 0.0f;
     }
 }
