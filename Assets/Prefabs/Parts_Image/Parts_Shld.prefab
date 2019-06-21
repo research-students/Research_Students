@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &33547676812085313
+--- !u!1 &843943469711811466
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 33547676812085314}
-  - component: {fileID: 33547676812085316}
-  - component: {fileID: 33547676812085315}
-  - component: {fileID: 33547676812085317}
-  - component: {fileID: 33547676812085318}
+  - component: {fileID: 533094639474588612}
+  - component: {fileID: 6728788116530050011}
+  - component: {fileID: 7758928442247465103}
+  - component: {fileID: 3893730867932626744}
   m_Layer: 5
-  m_Name: Slot1
-  m_TagString: Untagged
+  m_Name: Parts_Shld
+  m_TagString: Type_Shld
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &33547676812085314
+--- !u!224 &533094639474588612
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33547676812085313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_GameObject: {fileID: 843943469711811466}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -36,24 +35,24 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -200, y: -650}
-  m_SizeDelta: {x: 150, y: 150}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 135, y: 135}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &33547676812085316
+--- !u!222 &6728788116530050011
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33547676812085313}
+  m_GameObject: {fileID: 843943469711811466}
   m_CullTransparentMesh: 0
---- !u!114 &33547676812085315
+--- !u!114 &7758928442247465103
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33547676812085313}
+  m_GameObject: {fileID: 843943469711811466}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
@@ -67,7 +66,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 151934bb2b9ff764482e0dc50688beab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,31 +75,16 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
---- !u!114 &33547676812085317
+--- !u!114 &3893730867932626744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33547676812085313}
+  m_GameObject: {fileID: 843943469711811466}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c287af2f4cc6974192b0faadb4639a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 7f957a3821d20c0418175a124aa4e3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: Slot1
---- !u!114 &33547676812085318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33547676812085313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65d89ad2a9468d044b76629f42a33210, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprite:
-  - {fileID: 21300000, guid: b398e7be705edd048a0d05b199edb1fd, type: 3}
-  - {fileID: 21300000, guid: 4141fe1a00efb474695da197510e609d, type: 3}
+  prefab: {fileID: 2013436662551902176, guid: 37f09eaf92f9e81499da8af65b6573c3, type: 3}

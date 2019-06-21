@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Parts
+  - Parts_UI
+  - Type_Head
+  - Type_Foot
+  - Type_Shld
+  - Slot
   layers:
   - Default
   - TransparentFX
@@ -14,11 +20,11 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Parts
+  - Parts_UI
+  - Player
+  - Body_UI
+  - Slot_UI
   - 
   - 
   - 
