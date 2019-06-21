@@ -38,7 +38,11 @@ public class Parts_Changer : MonoBehaviour
             // slot同士なら自由に入れ替える
             else
             {
-                Change();
+                // body同士は交換しない
+                if (gameObject.layer == LayerMask.NameToLayer("Slot_UI") &&  parent.gameObject.layer == LayerMask.NameToLayer("Slot_UI"))
+                {
+                    Change();
+                }
             }
         }
     }
