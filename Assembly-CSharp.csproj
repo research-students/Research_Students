@@ -77,8 +77,8 @@
     <Compile Include="Assets\Scripts\Parts_UIMovement.cs" />
     <Compile Include="Assets\Scripts\Parts_UISlotCtrl.cs" />
     <Compile Include="Assets\Scripts\PlayerAction_Attack.cs" />
+    <Compile Include="Assets\Scripts\PlayerAction_Drag.cs" />
     <Compile Include="Assets\Scripts\PlayerAction_Flick.cs" />
-    <Compile Include="Assets\Scripts\PlayerAction_Run.cs" />
     <None Include="Assets\Animations\README.txt" />
     <None Include="Assets\Fonts\README.txt" />
     <None Include="Assets\Physics Materials\README.txt" />

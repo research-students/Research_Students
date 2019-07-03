@@ -2,17 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAction_Run : MonoBehaviour
+public class PlayerAction_Drag : MonoBehaviour
 {
     [SerializeField] float run_speed;
     [SerializeField] float run_friction;
 
-    private float run_amount;
-    private float arrange;
+    private Rigidbody rigid;
+    private float     run_amount;
+    private float     arrange;
 
 
     void Start()
     {
+        rigid = GetComponent<Rigidbody>();
+
         // 画面サイズ違いでの速度の差をなくす
         arrange = 1242.0f / Screen.width;
     }
@@ -26,7 +29,7 @@ public class PlayerAction_Run : MonoBehaviour
         // anim
 
         // 移動
-        transform.Translate(Vector3.forward * speed);
+        rigid.AddForce(Vector3.forward * speed);
 
         // 摩擦で減速
         run_amount *= run_friction;

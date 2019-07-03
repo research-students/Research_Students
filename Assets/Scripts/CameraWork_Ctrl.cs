@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraWork_Ctrl : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Run player;
+    [SerializeField] PlayerAction_Drag player;
     [SerializeField] float            work_wait;
     [SerializeField] float            work_friction;
 

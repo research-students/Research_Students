@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MouseAction_Drag : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Run action;
+    [SerializeField] PlayerAction_Drag action;
     [SerializeField] float            limit_time;
 
     private bool  down;

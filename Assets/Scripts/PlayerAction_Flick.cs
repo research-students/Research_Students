@@ -4,12 +4,31 @@ using UnityEngine;
 
 public class PlayerAction_Flick : MonoBehaviour
 {
-    // PlayerAction_Flickは仮名、PlayerAction_Runみたいにする
+    [SerializeField] Transform ray_point;
+    [SerializeField] float     jump_power;
+
+    private Rigidbody rigid;
 
 
+    void Start()
+    {
+        rigid = GetComponent<Rigidbody>();
+    }
+
+
+    //-----------
+    // ジャンプ
+    //-----------
     public void Up()
     {
-        Debug.Log("上フリック");
+        // Rayを生成 : 下方向に伸ばす
+        Ray ray = new Ray(ray_point.position, -ray_point.up);
+
+        // 何かに接地していたらジャンプ
+        if (Physics.Raycast(ray, out RaycastHit hit, 0.2f))
+        {
+            rigid.AddForce((Vector3.up * jump_power) + rigid.velocity, ForceMode.Impulse);
+        }
     }
 
 
