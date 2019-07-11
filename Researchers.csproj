@@ -641,12 +641,17 @@
     <Compile Include="Assets\Scripts\MouseAction_LongTap.cs" />
     <Compile Include="Assets\Scripts\MouseAction_Tap.cs" />
     <Compile Include="Assets\Scripts\Parts_Attacher.cs" />
-    <Compile Include="Assets\Scripts\Parts_Get_Empty.cs" />
-    <Compile Include="Assets\Scripts\Parts_ModeBody.cs" />
-    <Compile Include="Assets\Scripts\Parts_ModeSlot.cs" />
+    <Compile Include="Assets\Scripts\Parts_AttacherCtrl.cs" />
+    <Compile Include="Assets\Scripts\Parts_Base.cs" />
+    <Compile Include="Assets\Scripts\Parts_Changer.cs" />
+    <Compile Include="Assets\Scripts\Parts_Image.cs" />
+    <Compile Include="Assets\Scripts\Parts_SetManager.cs" />
+    <Compile Include="Assets\Scripts\Parts_UIBodyCtrl.cs" />
+    <Compile Include="Assets\Scripts\Parts_UIMovement.cs" />
+    <Compile Include="Assets\Scripts\Parts_UISlotCtrl.cs" />
     <Compile Include="Assets\Scripts\PlayerAction_Attack.cs" />
+    <Compile Include="Assets\Scripts\PlayerAction_Drag.cs" />
     <Compile Include="Assets\Scripts\PlayerAction_Flick.cs" />
-    <Compile Include="Assets\Scripts\PlayerAction_Run.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Animations\README.txt" />
@@ -658,10 +663,8 @@
     <None Include="Assets\Models\README.txt" />
     <None Include="Assets\Physics Materials\README.txt" />
     <None Include="Assets\Plugins\README.txt" />
-    <None Include="Assets\Prefabs\README.txt" />
     <None Include="Assets\Resources\README.txt" />
     <None Include="Assets\Scenes\README.txt" />
-    <None Include="Assets\Scripts\README.txt" />
     <None Include="Assets\Textures\README.txt" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryCommon.uss" />
     <None Include="Packages\com.unity.collab-proxy\Editor\Resources\Styles\CollabHistoryDark.uss" />
