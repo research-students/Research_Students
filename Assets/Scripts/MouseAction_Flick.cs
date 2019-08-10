@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MouseAction_Flick : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Flick action;
-    [SerializeField] float              limit_mag;
+    [SerializeField] Player_Ctrl player_ctrl;
+    [SerializeField] float       limit_mag;
 
     private Vector3 pos;
 
@@ -22,7 +22,21 @@ public class MouseAction_Flick : MonoBehaviour
 
         if (dir.magnitude > limit_mag)
         {
-            action.Flick(dir);
+            if (Mathf.Pow(dir.y, 2) > Mathf.Pow(dir.x, 2))
+            {
+                if (dir.y > 0.0f)
+                {
+                    player_ctrl.Jump(dir.magnitude);
+                }
+                else
+                {
+                    // Down();
+                }
+            }
+            else
+            {
+                player_ctrl.Action_Flick(dir.x);
+            }
         }
     }
 }

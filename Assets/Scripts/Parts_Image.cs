@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Parts_Image : MonoBehaviour
 {
     [SerializeField] Parts_Base prefab;
+    [SerializeField] Slider     life_ui;
 
     private Parts_Base parts_base;
     private Transform  body;
@@ -13,15 +15,29 @@ public class Parts_Image : MonoBehaviour
     //-----------
     // 初期設定
     //-----------
-    public void Init(Transform _parts_changer, Transform _body)
+    public void Init(Transform parts_changer, Transform body)
     {
-        transform.SetParent(_parts_changer);
+        transform.SetParent(parts_changer);
 
-        transform.position = _parts_changer.position;
+        transform.position = parts_changer.position;
 
-        _parts_changer.tag = tag;
+        parts_changer.tag = tag;
 
-        body = _body;
+        this.body = body;
+    }
+
+
+    //-----------------
+    // ライフを減らす
+    //-----------------
+    public void Life_Sub(int damage)
+    {
+        life_ui.value -= damage;
+
+        if (life_ui.value <= 0)
+        {
+            Delete();
+        }
     }
 
 
@@ -34,7 +50,7 @@ public class Parts_Image : MonoBehaviour
         parts_base = Instantiate(prefab);
 
         // プレイヤーにアタッチ
-        parts_base.Attach(body);
+        parts_base.Attach(body, this);
     }
 
 

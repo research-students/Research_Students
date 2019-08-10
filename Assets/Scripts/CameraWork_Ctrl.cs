@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class CameraWork_Ctrl : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Drag player;
-    [SerializeField] float            work_wait;
-    [SerializeField] float            work_friction;
+    [SerializeField] Player_Ctrl player_ctrl;
+    [SerializeField] float       work_wait;
+    [SerializeField] float       work_friction;
 
     
     void FixedUpdate()
     {
         // playerの移動量取得
-        float speed = player.Get_Run_amount();
+        float speed = player_ctrl.Get_Run_Amount();
 
         // カメラの追従
         transform.Translate(Vector3.left * speed * work_wait);

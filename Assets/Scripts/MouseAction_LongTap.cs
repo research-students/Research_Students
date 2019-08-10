@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MouseAction_LongTap : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Attack action;    
-    [SerializeField] float               limit_time;
-    [SerializeField] float               limit_mag;
+    [SerializeField] Player_Ctrl player_ctrl;
+    [SerializeField] float       limit_time;
+    [SerializeField] float       limit_mag;
 
     private Vector3 pos;
     private bool    down;
@@ -44,7 +44,7 @@ public class MouseAction_LongTap : MonoBehaviour
 
             if (mag < limit_mag)
             {
-                action.LongTap();
+                player_ctrl.Action_LongTap();
             }
 
             down_long = false;

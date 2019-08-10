@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MouseAction_Drag : MonoBehaviour
 {
-    [SerializeField] PlayerAction_Drag action;
-    [SerializeField] float            limit_time;
+    [SerializeField] Player_Ctrl player_ctrl;
+    [SerializeField] float       limit_time;
 
     private bool  down;
     private float pos_x;
@@ -17,7 +17,7 @@ public class MouseAction_Drag : MonoBehaviour
         {
             float dif = Input.mousePosition.x - pos_x;
 
-            action.Drag(dif);
+            player_ctrl.Run(dif);
         }
     }
 

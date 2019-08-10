@@ -10,14 +10,14 @@ public class Parts_Attacher : MonoBehaviour
     //----------------
     // アタッチ : UI
     //----------------
-    public void Attach(string _parts_name, Transform _parts_changer)
+    public void Attach(string parts_name, Transform parts_changer)
     {
         for (int i = 0; i < prefab.Length; i++)
         {
-            if (_parts_name == prefab[i].name)
+            if (parts_name == prefab[i].name)
             {
                 // イメージを生成、アタッチ
-                Instantiate(prefab[i]).Init(_parts_changer, transform);
+                Instantiate(prefab[i]).Init(parts_changer, transform);
             }
         }
     }
