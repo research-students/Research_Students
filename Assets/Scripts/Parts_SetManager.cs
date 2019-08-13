@@ -55,7 +55,7 @@ public class Parts_SetManager : MonoBehaviour
     //-------------------
     // パーツに触れたら
     //-------------------
-    private void OnCollisionEnter(Collision col)
+    private void OnCollisionStay(Collision col)
     {
         for (int i = 0; i < type.Length; i++)
         {

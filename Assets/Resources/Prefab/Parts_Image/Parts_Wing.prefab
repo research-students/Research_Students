@@ -79,9 +79,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 5
+  m_MaxValue: 10000
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 10000
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -100,8 +100,8 @@ GameObject:
   - component: {fileID: 8974811538699145927}
   - component: {fileID: 5670209075642979298}
   m_Layer: 5
-  m_Name: Parts_Gun1
-  m_TagString: Type_Hand
+  m_Name: Parts_Wing
+  m_TagString: Type_Shld
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b28ad1c9734408d459c445c004b160fd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 87bb61a0d35fe29469f6774dca148206, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f957a3821d20c0418175a124aa4e3d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1736554242592325738, guid: da98a64549b870f479c358c97a8da24c, type: 3}
+  prefab: {fileID: 1839494676359063601, guid: 5d191ea6e75ddf24e9b5aa78f35dbb48, type: 3}
   life_ui: {fileID: 9171806361032275006}
 --- !u!1 &2802864444608366103
 GameObject:

@@ -7,8 +7,8 @@ public class CameraWork_Ctrl : MonoBehaviour
     [SerializeField] Player_Ctrl player_ctrl;
     [SerializeField] float       work_wait;
     [SerializeField] float       work_friction;
-
     
+
     void FixedUpdate()
     {
         // playerの移動量取得

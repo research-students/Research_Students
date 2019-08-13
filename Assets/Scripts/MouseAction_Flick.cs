@@ -22,21 +22,7 @@ public class MouseAction_Flick : MonoBehaviour
 
         if (dir.magnitude > limit_mag)
         {
-            if (Mathf.Pow(dir.y, 2) > Mathf.Pow(dir.x, 2))
-            {
-                if (dir.y > 0.0f)
-                {
-                    player_ctrl.Jump(dir.magnitude);
-                }
-                else
-                {
-                    // Down();
-                }
-            }
-            else
-            {
-                player_ctrl.Action_Flick(dir.x);
-            }
+            player_ctrl.Action_Flick(dir);
         }
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class Parts_Gun : Parts_Base
 {
     [SerializeField] Parts_Gun_Bullet bullet1;
+    [SerializeField] Parts_Gun_Bullet bullet2;
     [SerializeField] float            interval;
 
     private bool can_shot;
@@ -19,17 +20,15 @@ public class Parts_Gun : Parts_Base
     //--------------
     // アクション1
     //--------------
-    public override void Action1()
+    public override void Action1(bool life_sub, int adj)
     {
         if (can_shot)
         {
-            base.Action1();
+            base.Action1(life_sub, adj);
 
             Instantiate(bullet1).Init(transform);
 
             StartCoroutine("CoolTime");
-
-            Debug.Log("Action1");
         }
     }
 
@@ -37,15 +36,15 @@ public class Parts_Gun : Parts_Base
     //--------------
     // アクション2
     //--------------
-    public override void Action2()
+    public override void Action2(bool life_sub, int adj)
     {
         if (can_shot)
         {
-            base.Action2();
+            base.Action2(life_sub, adj);
 
-            Debug.Log("Action2");
+            Instantiate(bullet2).Init(transform);
 
-            // 拡張予定
+            StartCoroutine("CoolTime");
         }
     }
 

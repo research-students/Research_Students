@@ -15,7 +15,7 @@ public class Parts_UIMovement : MonoBehaviour
     {
         if (touch)
         {
-            // UIをDragする
+            // UIをドラッグする
             transform.position = Input.mousePosition;
         }
         else

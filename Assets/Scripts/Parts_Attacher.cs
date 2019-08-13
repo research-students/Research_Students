@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Parts_Attacher : MonoBehaviour
 {
-    [SerializeField] Parts_Image[] prefab;
+    [SerializeField] Player_Ctrl player;
 
 
     //----------------
@@ -12,13 +12,12 @@ public class Parts_Attacher : MonoBehaviour
     //----------------
     public void Attach(string parts_name, Transform parts_changer)
     {
-        for (int i = 0; i < prefab.Length; i++)
-        {
-            if (parts_name == prefab[i].name)
-            {
-                // イメージを生成、アタッチ
-                Instantiate(prefab[i]).Init(parts_changer, transform);
-            }
-        }
+        if (player.Get_Death()) return;
+
+        // パーツイメージを生成
+        GameObject parts_image = Instantiate((GameObject)Resources.Load("Prefab/Parts_Image/" + parts_name));
+
+        // 初期化してアタッチ
+        parts_image.GetComponent<Parts_Image>().Init(parts_changer, transform);
     }
 }

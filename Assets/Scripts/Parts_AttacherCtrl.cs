@@ -18,19 +18,19 @@ public class Parts_AttacherCtrl : MonoBehaviour
                 // すでにアタッチされていれば一旦デタッチ
                 if (parts_image)
                 {
-                    parts_image.Detach_Player();
+                    parts_image.Detach_Body();
                 }
 
                 // Parts_Imageを取得 : 更新
                 parts_image = child.GetComponent<Parts_Image>();
 
-                // プレイヤーにパーツをアタッチ
-                parts_image.Attach_Player();
+                // Bodyにパーツをアタッチ
+                parts_image.Attach_Body();
             }
             else
             {
                 // 空状態なら普通にデタッチ
-                parts_image.Detach_Player();
+                parts_image.Detach_Body();
 
                 parts_image = null;
             }

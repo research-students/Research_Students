@@ -1,19 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Character_Base : MonoBehaviour
 {
+    [SerializeField] Slider    hp_ui;
     [SerializeField] Transform model;
-    [SerializeField] Transform hand;
-    [SerializeField] float     jump_power;
-    [SerializeField] float     jump_max_height;
     [SerializeField] float     run_speed;
     [SerializeField] float     run_friction;
 
-    private Rigidbody rigid;
-    private Vector3   movement;
-    private bool      landing;
+    protected Rigidbody rigid;
+    protected Vector3   movement;
+    protected bool      landing;
 
 
     void Awake()
@@ -26,83 +25,51 @@ public class Character_Base : MonoBehaviour
     {
         movement.y = rigid.velocity.y;
 
-        rigid.velocity = movement * (1242.0f / Screen.width);
-
-        if (landing)
+        if (landing) 
         {
-            movement.z *= run_friction;
+            rigid.AddForce(Vector3.forward * movement.z * run_speed);
+
+            rigid.velocity *= run_friction;
         }
+
+        movement.z *= run_friction;
     }
 
 
     //-------
     // 走る
     //-------
-    public void Run(float amount)
+    public virtual void Run(float amount)
     {
-        movement.z = amount * run_speed;
+        movement.z = amount;
 
-        Change_Direction(movement.z);
-    }
-
-
-    //-----------
-    // ジャンプ
-    //-----------
-    public void Jump(float amount)
-    {
-        if (landing)
+        if (Mathf.Pow(amount, 2) > 0.01f)
         {
-            if (amount > jump_max_height)
-            {
-                amount = jump_max_height;
-            }
-
-            Vector3 force = Vector3.up * jump_power * amount;
-
-            rigid.AddForce(force * (1242.0f / Screen.width), ForceMode.Impulse);
+            Change_Direction(movement.z);
         }
     }
 
 
-    //----------------------
-    // アクション : タップ
-    //----------------------
-    public void Action_Tap()
+    //-------------
+    // HPを減らす
+    //-------------
+    protected void HP_Sub(int damage)
     {
-        if (hand.childCount == 0)
+        hp_ui.value -= damage;
+
+        if (hp_ui.value <= 0)
         {
-            Debug.Log("キック");
-        }
-        else
-        {
-            hand.GetChild(0).GetComponent<Parts_Base>().Action1();
+            Death();
         }
     }
 
 
-    //----------------------------
-    // アクション : ロングタップ
-    //----------------------------
-    public void Action_LongTap()
+    //--------------------
+    // Deathした時の処理
+    //--------------------
+    protected virtual void Death()
     {
-        if (hand.childCount == 0)
-        {
-            Debug.Log("強いキック");
-        }
-        else
-        {
-            hand.GetChild(0).GetComponent<Parts_Base>().Action2();
-        }
-    }
 
-
-    //------------------------
-    // アクション : フリック
-    //------------------------
-    public void Action_Flick(float dir)
-    {
-        Change_Direction(dir);
     }
 
 
@@ -115,10 +82,19 @@ public class Character_Base : MonoBehaviour
     }
 
 
+    //-----------------
+    // 接地状態を返す
+    //-----------------
+    public bool Get_Landing()
+    {
+        return landing;
+    }
+
+
     //-----------
     // 方向転換
     //-----------
-    private void Change_Direction(float dir)
+    protected void Change_Direction(float dir)
     {
         if (dir > 0f)
         {

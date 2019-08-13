@@ -12,6 +12,9 @@ TagManager:
   - Slot
   - Type_Hand
   - Bullet
+  - Player_Attack
+  - Enemy
+  - Enemy_Attack
   layers:
   - Default
   - TransparentFX
@@ -22,16 +25,16 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Parts
+  - 
   - Parts_UI
   - Player
+  - Player_Parts
+  - Enemy
+  - Enemy_Parts
   - Body_UI
   - Slot_UI
-  - Enemy
-  - 
-  - 
-  - 
-  - 
+  - Player_Attack_Body
+  - Enemy_Attack_Body
   - 
   - 
   - 

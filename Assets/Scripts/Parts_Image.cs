@@ -41,23 +41,23 @@ public class Parts_Image : MonoBehaviour
     }
 
 
-    //-------------------------------
-    // プレイヤーにパーツをアタッチ
-    //-------------------------------
-    public void Attach_Player()
+    //-------------------------
+    // Bodyにパーツをアタッチ
+    //-------------------------
+    public void Attach_Body()
     {
         // パーツを生成
         parts_base = Instantiate(prefab);
 
-        // プレイヤーにアタッチ
+        // Bodyにアタッチ
         parts_base.Attach(body, this);
     }
 
 
-    //---------------------------------
-    // プレイヤーからパーツをデタッチ
-    //---------------------------------
-    public void Detach_Player()
+    //---------------------------
+    // Bodyからパーツをデタッチ
+    //---------------------------
+    public void Detach_Body()
     {
         if (parts_base)
         {
@@ -73,7 +73,7 @@ public class Parts_Image : MonoBehaviour
     public void Delete()
     {
         // デタッチもする
-        Detach_Player();
+        Detach_Body();
 
         // 破棄
         Destroy(gameObject);

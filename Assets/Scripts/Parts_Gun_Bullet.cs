@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parts_Gun_Bullet : MonoBehaviour
+public class Parts_Gun_Bullet : Attack
 {
     [SerializeField] float speed;
-    [SerializeField] float damage;
 
 
     void Update()
@@ -19,17 +18,10 @@ public class Parts_Gun_Bullet : MonoBehaviour
     //---------
     public void Init(Transform gun)
     {
+        tag                = gun.tag;
         transform.position = gun.position;
         transform.rotation = gun.rotation;
-    }
-
-
-    //-------------------
-    // ダメージを与える
-    //-------------------
-    public float Get_Damage()
-    {
-        return damage;
+        gameObject.layer   = gun.gameObject.layer;
     }
 
 
