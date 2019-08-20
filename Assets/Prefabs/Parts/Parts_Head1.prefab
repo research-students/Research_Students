@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2429569852444192616}
   - component: {fileID: 2429569852444192619}
   - component: {fileID: 2429569853340710283}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Parts_Head1
   m_TagString: Type_Head
   m_Icon: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Type_Head
+  impulse: 0
   life_sub1: 0
   life_sub2: 0
 --- !u!1 &2429569853520157556
@@ -89,7 +90,7 @@ GameObject:
   - component: {fileID: 2429569853520157557}
   - component: {fileID: 2429569853520157563}
   - component: {fileID: 2429569853520157562}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

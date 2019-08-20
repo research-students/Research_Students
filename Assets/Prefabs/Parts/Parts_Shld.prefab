@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2013436662302412917}
   - component: {fileID: 2013436662302412918}
   - component: {fileID: 2013436662551902176}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Parts_Shld
   m_TagString: Type_Shld
   m_Icon: {fileID: 0}
@@ -76,6 +76,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Type_Shld
+  impulse: 0
   life_sub1: 0
   life_sub2: 0
 --- !u!1 &2013436663828375682
@@ -89,7 +90,7 @@ GameObject:
   - component: {fileID: 2013436663828375681}
   - component: {fileID: 2013436663828375687}
   - component: {fileID: 2013436663828375680}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

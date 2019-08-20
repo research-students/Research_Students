@@ -55,20 +55,25 @@ public class Parts_SetManager : MonoBehaviour
     //-------------------
     // パーツに触れたら
     //-------------------
-    private void OnCollisionStay(Collision col)
+    private void OnTriggerStay(Collider col)
     {
         for (int i = 0; i < type.Length; i++)
         {
-            if (col.gameObject.tag == type[i])
+            if (col.tag != type[i])
             {
-                if (Attach_UI_Body(i, col.gameObject.GetComponent<Parts_Base>()))
-                {
-                    return;
-                }
-                else
-                {
-                    Attach_UI_Slot(i, col.gameObject.GetComponent<Parts_Base>());
-                }
+                continue;
+            }
+            if (col.transform.parent.parent)
+            {
+                return;
+            }
+            if (Attach_UI_Body(i, col.transform.parent.GetComponent<Parts_Base>()))
+            {
+                return;
+            }
+            else
+            {
+                Attach_UI_Slot(i, col.transform.parent.GetComponent<Parts_Base>());
             }
         }
     }

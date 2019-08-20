@@ -8,7 +8,7 @@ public class Player_Ctrl : Character_Base
     [SerializeField] float       jump_power;
     [SerializeField] float       jump_max_height;
 
-    private bool death;
+    private bool stop;
 
 
     //-------
@@ -16,7 +16,7 @@ public class Player_Ctrl : Character_Base
     //-------
     public override void Run(float amount)
     {
-        if (death) return;
+        if (stop) return;
 
         base.Run(amount);
     }
@@ -27,7 +27,7 @@ public class Player_Ctrl : Character_Base
     //-----------
     public void Jump(float amount)
     {
-        if (death) return;
+        if (stop) return;
 
         if (landing)
         {
@@ -50,7 +50,7 @@ public class Player_Ctrl : Character_Base
     //----------------------
     public void Action_Tap()
     {
-        if (death) return;
+        if (stop) return;
 
         if (bodys[1].childCount == 0)
         {
@@ -68,7 +68,7 @@ public class Player_Ctrl : Character_Base
     //----------------------------
     public void Action_LongTap()
     {
-        if (death) return;
+        if (stop) return;
 
         if (bodys[1].childCount == 0)
         {
@@ -86,7 +86,7 @@ public class Player_Ctrl : Character_Base
     //------------------------
     public void Action_Flick(Vector3 dir)
     {
-        if (death) return;
+        if (stop) return;
 
         Change_Direction(dir.x);
 
@@ -119,7 +119,16 @@ public class Player_Ctrl : Character_Base
     //------------------
     public bool Get_Death()
     {
-        return death;
+        return stop;
+    }
+
+
+    //--------------------
+    // Clearした時の処理
+    //--------------------
+    public void Clear()
+    {
+        stop = true;
     }
 
 
@@ -128,7 +137,7 @@ public class Player_Ctrl : Character_Base
     //--------------------
     protected override void Death()
     {
-        death = true;
+        stop = true;
 
         for (int i = 0; i < bodys.Length; i++)
         {
@@ -148,7 +157,7 @@ public class Player_Ctrl : Character_Base
     //-----------------
     private void OnCollisionEnter(Collision col)
     {
-        if (death) return;
+        if (stop) return;
 
         if (col.gameObject.tag == "Enemy_Attack")
         {

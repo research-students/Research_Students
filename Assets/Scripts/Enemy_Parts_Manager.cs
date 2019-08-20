@@ -57,18 +57,28 @@ public class Enemy_Parts_Manager : MonoBehaviour
     //-----------------------
     // パーツに触れていたら
     //-----------------------
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerStay(Collider col)
     {
         for (int i = 0; i < type.Length; i++)
         {
-            if (col.gameObject.tag == type[i])
+            if (col.tag != type[i])
             {
-                if (bodys[i].childCount == 0)
-                {
-                    // アタッチ : 拾う条件とかは拡張予定(今は無条件)
-                    col.gameObject.GetComponent<Parts_Base>().Attach(bodys[i]);
-                }
+                continue;
             }
+            if (bodys[i].childCount != 0)
+            {
+                return;
+            }
+            if (col.transform.parent.parent)
+            {
+                return;
+            }
+
+            // パーツを取得
+            parts[i] = col.transform.parent.GetComponent<Parts_Base>();
+
+            // アタッチ : 拾う条件とかは拡張予定(今は無条件)
+            parts[i].Attach(bodys[i]);
         }
     }
 }

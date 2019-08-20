@@ -58,7 +58,7 @@ public class Parts_Base : MonoBehaviour
 
         // グループを無効化
         gameObject.tag   = type;
-        gameObject.layer = LayerMask.NameToLayer("Default");
+        gameObject.layer = LayerMask.NameToLayer("Parts");
     }
 
 

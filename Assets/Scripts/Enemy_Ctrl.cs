@@ -110,6 +110,9 @@ public class Enemy_Ctrl : Character_Base
         // パーツをドロップ
         drop_parts.Drop();
 
+        // Kill数を加算
+        GameObject.Find("Kill_Count").GetComponent<Kill_Count>().Kill_Counter();
+
         // 消滅
         Destroy(gameObject);
     }
