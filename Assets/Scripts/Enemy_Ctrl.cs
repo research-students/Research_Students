@@ -5,9 +5,9 @@ using UnityEngine;
 public class Enemy_Ctrl : Character_Base
 {
     [SerializeField] Enemy_Parts_Manager parts_manager;
-    [SerializeField] Parts_Base[] parts;
-    [SerializeField] Parts_Base   drop_parts;
-    [SerializeField] float        jump_power;
+    [SerializeField] Parts_Base[]        parts;
+    [SerializeField] Parts_Base          drop_parts;
+    [SerializeField] float               jump_power;
 
 
     void Start()
@@ -25,7 +25,8 @@ public class Enemy_Ctrl : Character_Base
     void Update()
     {
         // 走る
-        Run(Input.GetAxis("Horizontal"));
+        // Run(Input.GetAxis("Horizontal"));
+        transform.Translate(Vector3.forward * 0.001f);
 
         // アクション1 : Hand
         if (Input.GetKeyDown("z"))
@@ -33,6 +34,14 @@ public class Enemy_Ctrl : Character_Base
             if (parts_manager.Get_Equipping(1))
             {
                 parts_manager.Action(1, 1);
+            }
+        }
+        // アクション1 : Hand2
+        if (Input.GetKeyDown("a"))
+        {
+            if (parts_manager.Get_Equipping(1))
+            {
+                parts_manager.Action(1, 2);
             }
         }
 
@@ -76,6 +85,11 @@ public class Enemy_Ctrl : Character_Base
                 Jump();
             }
         }
+        // アクション3: Foot
+        if (Input.GetKeyDown("b"))
+        {
+            Attack();
+        }
     }
 
 
@@ -115,17 +129,5 @@ public class Enemy_Ctrl : Character_Base
 
         // 消滅
         Destroy(gameObject);
-    }
-
-
-    //-----------------
-    // 攻撃を受けたら
-    //-----------------
-    private void OnCollisionEnter(Collision col)
-    {
-        if (col.gameObject.tag == "Player_Attack")
-        {
-            HP_Sub(col.gameObject.GetComponent<Attack>().Get_Damage());
-        }
     }
 }

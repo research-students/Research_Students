@@ -5,16 +5,18 @@ using UnityEngine;
 public class Parts_Base : MonoBehaviour
 {
     [SerializeField] string type;
+    [SerializeField] string parts_type;
     [SerializeField] float  impulse;
     [SerializeField] int    life_sub1;
     [SerializeField] int    life_sub2;
+    [SerializeField] bool   enemy_can_take;
 
     private Parts_Image parts_image;
 
 
-    //---------------------
-    // アタッチ : Enemy用
-    //---------------------
+    //-----------
+    // アタッチ
+    //-----------
     public void Attach(Transform body)
     {
         transform.parent   = body;
@@ -26,6 +28,14 @@ public class Parts_Base : MonoBehaviour
         // グループを有効化
         gameObject.tag   = body.root.tag;
         gameObject.layer = body.gameObject.layer + 1;
+
+        if (parts_type == "Shield")
+        {
+            // シールドだけ別処理
+            gameObject.layer = LayerMask.NameToLayer("Parts_Shield_" + body.root.tag);
+        }
+
+        Attach_Settig();
     }
 
 
@@ -38,6 +48,33 @@ public class Parts_Base : MonoBehaviour
 
         // parts_imageを取得
         this.parts_image = parts_image;
+    }
+
+
+    //--------------------------------
+    // Enemyが取得出来るパーツか返す
+    //--------------------------------
+    public bool Get_Enemy_Can_Take()
+    {
+        return enemy_can_take;
+    }
+
+
+    //---------------------------
+    // 自分のパーツタイプを返す
+    //---------------------------
+    public string Get_Parts_Type()
+    {
+        return parts_type;
+    }
+
+
+    //---------------------------
+    // アタッチした時に設定する
+    //---------------------------
+    protected virtual void Attach_Settig()
+    {
+
     }
 
 

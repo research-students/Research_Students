@@ -23,6 +23,17 @@ public class Player_Ctrl : Character_Base
 
 
     //-----------
+    // 通常攻撃
+    //-----------
+    public override void Attack()
+    {
+        if (stop) return;
+
+        base.Attack();
+    }
+
+
+    //-----------
     // ジャンプ
     //-----------
     public void Jump(float amount)
@@ -54,7 +65,12 @@ public class Player_Ctrl : Character_Base
 
         if (bodys[1].childCount == 0)
         {
-            Debug.Log("キック");
+            Attack();
+
+            if (bodys[3].childCount != 0)
+            {
+                bodys[3].GetChild(0).GetComponent<Parts_Base>().Action2(true, 0);
+            }
         }
         else
         {
@@ -72,11 +88,38 @@ public class Player_Ctrl : Character_Base
 
         if (bodys[1].childCount == 0)
         {
-            Debug.Log("強いキック");
+            Attack_Strong();
+
+            if (bodys[3].childCount != 0)
+            {
+                bodys[3].GetChild(0).GetComponent<Parts_Base>().Action2(true, 0);
+            }
         }
         else
         {
             bodys[1].GetChild(0).GetComponent<Parts_Base>().Action2(true, 0);
+        }
+    }
+
+
+    //----------------------------
+    // アクション : ロングステイ
+    //----------------------------
+    public void Action_LongStay(bool flag)
+    {
+        if (stop) return;
+
+        if (bodys[1].childCount != 0)
+        {
+            Parts_Shield parts_shield = bodys[1].GetChild(0).GetComponent<Parts_Shield>();
+
+            if (parts_shield)
+            {
+                if (parts_shield.Get_Parts_Type() == "Shield")
+                {
+                    parts_shield.Rush_Enabled(flag);
+                }
+            }
         }
     }
 
@@ -149,19 +192,5 @@ public class Player_Ctrl : Character_Base
 
         GameObject.Find("Player_Model").transform.Translate(Vector3.down * 0.5f);
         GameObject.Find("Player_Model").transform.Rotate(Vector3.left * 90f);
-    }
-
-
-    //-----------------
-    // 攻撃を受けたら
-    //-----------------
-    private void OnCollisionEnter(Collision col)
-    {
-        if (stop) return;
-
-        if (col.gameObject.tag == "Enemy_Attack")
-        {
-            HP_Sub(col.gameObject.GetComponent<Attack>().Get_Damage());
-        }
     }
 }

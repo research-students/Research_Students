@@ -77,8 +77,12 @@ public class Enemy_Parts_Manager : MonoBehaviour
             // パーツを取得
             parts[i] = col.transform.parent.GetComponent<Parts_Base>();
 
-            // アタッチ : 拾う条件とかは拡張予定(今は無条件)
-            parts[i].Attach(bodys[i]);
+            // Enemyが取得出来るパーツか
+            if (parts[i].Get_Enemy_Can_Take())
+            {
+                // アタッチ
+                parts[i].Attach(bodys[i]);
+            }
         }
     }
 }

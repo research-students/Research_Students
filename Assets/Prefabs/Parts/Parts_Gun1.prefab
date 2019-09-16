@@ -78,9 +78,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Type_Hand
+  parts_type: Gun
   impulse: 2.5
   life_sub1: 1
   life_sub2: 2
+  enemy_can_take: 1
   bullet1: {fileID: 2285159868935861703, guid: f9da471e2ac9b0d498e609ab33984d47, type: 3}
   bullet2: {fileID: 9023500101493858430, guid: 32d60b6fc306e1743bcb9803f1bce202, type: 3}
   interval: 1

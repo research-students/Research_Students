@@ -2,9 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parts_Gun_Bullet : Attack
+public class Parts_Gun_Bullet : MonoBehaviour
 {
     [SerializeField] float speed;
+    [SerializeField] int   damage;
+
+
+    void Start()
+    {
+        tag = transform.root.tag + "_Attack";
+    }
 
 
     void Update()
@@ -33,6 +40,17 @@ public class Parts_Gun_Bullet : Attack
         if (col.gameObject.name.Contains("Parts_Gun"))
         {
             return;
+        }
+
+        if (col.gameObject.tag == "Enemy" || col.gameObject.tag == "Player")
+        {
+            Character_Base tmp = col.gameObject.GetComponent<Character_Base>();
+
+            if (tmp)
+            {
+                // ダメージを与える
+                tmp.HP_Sub(damage);
+            }
         }
 
         // 消滅

@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [SerializeField] int damage;
+    [SerializeField] bool not_init;
+    [SerializeField] int  damage;
 
 
     void Start()
     {
-        tag = transform.root.tag + "_Attack";
+        if (not_init == false)
+        {
+            tag = transform.root.tag + "_Attack";
+        }
     }
 
 

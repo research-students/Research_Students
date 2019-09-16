@@ -36,8 +36,8 @@ TagManager:
   - Slot_UI
   - Player_Attack_Body
   - Enemy_Attack_Body
-  - 
-  - 
+  - Parts_Shield_Player
+  - Parts_Shield_Enemy
   - 
   - 
   - 

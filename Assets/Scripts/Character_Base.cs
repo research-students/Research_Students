@@ -9,15 +9,22 @@ public class Character_Base : MonoBehaviour
     [SerializeField] Transform model;
     [SerializeField] float     run_speed;
     [SerializeField] float     run_friction;
+    [SerializeField] float     attack_power;
+    [SerializeField] float     attack_power_strong;
 
     protected Rigidbody rigid;
     protected Vector3   movement;
     protected bool      landing;
+    private   bool      invincible;
+    private   float     speed;
+    private   float     attack;
 
 
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();
+        rigid  = GetComponent<Rigidbody>();
+        speed  = 1f;
+        attack = 1f;
     }
 
 
@@ -41,7 +48,7 @@ public class Character_Base : MonoBehaviour
     //-------
     public virtual void Run(float amount)
     {
-        movement.z = amount;
+        movement.z = amount * speed;
 
         if (Mathf.Pow(amount, 2) > 0.01f)
         {
@@ -50,17 +57,67 @@ public class Character_Base : MonoBehaviour
     }
 
 
+    //-----------
+    // 通常攻撃
+    //-----------
+    public virtual void Attack()
+    {
+        Debug.Log("キック---攻撃力: " + (attack_power * attack));
+    }
+
+
+    //------------------
+    // 通常攻撃 : 強化
+    //------------------
+    public virtual void Attack_Strong()
+    {
+        Debug.Log("強いキック---攻撃力: " + (attack_power_strong * attack));
+    }
+
+
+    //-------------------
+    // スピードチェンジ
+    //-------------------
+    public void Speed_Change(float amount)
+    {
+        speed = amount;
+    }
+
+
+    //-----------------
+    // 攻撃力チェンジ
+    //-----------------
+    public void Attack_Change(float amount)
+    {
+        attack = amount;
+    }
+
+
     //-------------
     // HPを減らす
     //-------------
-    protected void HP_Sub(int damage)
+    public void HP_Sub(int damage)
     {
+        if (invincible)
+        {
+            return;
+        }
+
         hp_ui.value -= damage;
 
         if (hp_ui.value <= 0)
         {
             Death();
         }
+    }
+
+
+    //---------------------
+    // 無敵状態の切り替え
+    //---------------------
+    public void Set_Invincible(bool flag)
+    {
+        invincible = flag;
     }
 
 

@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class MouseAction_Drag : MonoBehaviour
 {
-    [SerializeField] Player_Ctrl player_ctrl;
-    [SerializeField] float       limit_time;
+    [SerializeField] MouseAction_LongStay long_stay;
+    [SerializeField] Player_Ctrl          player_ctrl;
+    [SerializeField] float                limit_time;
 
     private bool  down;
     private float pos_x;
@@ -15,6 +16,11 @@ public class MouseAction_Drag : MonoBehaviour
     {
         if (down)
         {
+            if (long_stay.Active())
+            {
+                return;
+            }
+
             float dif = Input.mousePosition.x - pos_x;
 
             player_ctrl.Run(dif);
