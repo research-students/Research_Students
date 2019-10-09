@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Attack.cs" />
+    <Compile Include="Assets\Scripts\Camera_ChangePoint.cs" />
     <Compile Include="Assets\Scripts\CameraWork_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Character_Base.cs" />
     <Compile Include="Assets\Scripts\Enemy_Ctrl.cs" />
