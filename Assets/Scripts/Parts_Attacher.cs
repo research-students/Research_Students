@@ -10,7 +10,7 @@ public class Parts_Attacher : MonoBehaviour
     //----------------
     // アタッチ : UI
     //----------------
-    public void Attach(string parts_name, Transform parts_changer)
+    public void Attach(string parts_name, Transform parts_changer, int life = 0)
     {
         if (player.Get_Death()) return;
 
@@ -18,6 +18,6 @@ public class Parts_Attacher : MonoBehaviour
         GameObject parts_image = Instantiate((GameObject)Resources.Load("Prefab/Parts_Image/" + parts_name));
 
         // 初期化してアタッチ
-        parts_image.GetComponent<Parts_Image>().Init(parts_changer, transform);
+        parts_image.GetComponent<Parts_Image>().Init(parts_changer, transform, life);
     }
 }

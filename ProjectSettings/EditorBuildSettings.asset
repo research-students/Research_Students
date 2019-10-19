@@ -4,5 +4,26 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Scene_Title_And_Menu.unity
+    guid: 2c6e744a1ba645547a6bf16b9ec16c7e
+  - enabled: 1
+    path: Assets/Scenes/Scene_Customize.unity
+    guid: d0873ea9a3fa76748843dcc8c7ace8ab
+  - enabled: 1
+    path: Assets/Scenes/Scene_Opening.unity
+    guid: c405ff0177a34334b80a17afbf2148f8
+  - enabled: 1
+    path: Assets/Works/Funaoka/Scenes/Tmp_Prototype_Stage.unity
+    guid: 26bcc195626ef1f4693489b8ad604357
+  - enabled: 1
+    path: Assets/Scenes/Scene_Pause.unity
+    guid: a6d8d94c43c25ca42873602c085988e9
+  - enabled: 1
+    path: Assets/Scenes/Scene_GameOver.unity
+    guid: dc54b27d25eb3b941b6a61140bc27682
+  - enabled: 1
+    path: Assets/Scenes/Scene_GameClear.unity
+    guid: 5c4421afbd2f6f64c8d36a8fa9737240
   m_configObjects: {}
