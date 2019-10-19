@@ -14,7 +14,7 @@ public class Parts_Gun_Bullet : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         transform.Translate(Vector3.forward * speed);
     }

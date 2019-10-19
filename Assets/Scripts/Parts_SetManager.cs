@@ -7,7 +7,40 @@ public class Parts_SetManager : MonoBehaviour
     [SerializeField] Parts_Attacher[] parts_attacher;
     [SerializeField] RectTransform[]  body_UI;
     [SerializeField] RectTransform[]  slot_UI;
+    [SerializeField] Data_Manager     data_manager;
     [SerializeField] string[]         type;
+
+
+    void Start()
+    {
+        // パーツのセーブデータを読み込む
+        string[] bp_names = data_manager.Load_Parts(Data_Manager.CATEGORY.BP, Data_Manager.STATE.NAME);
+        string[] bp_lifes = data_manager.Load_Parts(Data_Manager.CATEGORY.BP, Data_Manager.STATE.LIFE);
+        string[] sp_names = data_manager.Load_Parts(Data_Manager.CATEGORY.SP, Data_Manager.STATE.NAME);
+        string[] sp_lifes = data_manager.Load_Parts(Data_Manager.CATEGORY.SP, Data_Manager.STATE.LIFE);
+
+        // パーツをアタッチ
+        Attach_Parts(body_UI, bp_names, bp_lifes);
+        Attach_Parts(slot_UI, sp_names, sp_lifes);
+    }
+
+
+    //-------------------
+    // パーツをアタッチ
+    //-------------------
+    public void Attach_Parts(RectTransform[] rect, string[] names, string[] lifes)
+    {
+        for (int i = 0; i < rect.Length; i++)
+        {
+            if (names[i] == "___")
+            {
+                continue;
+            }
+
+            // アタッチ
+            parts_attacher[i].Attach(names[i], rect[i].GetChild(0), int.Parse(lifes[i]));
+        }
+    }
 
 
     //--------------------------------

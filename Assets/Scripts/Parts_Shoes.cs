@@ -11,7 +11,7 @@ public class Parts_Shoes : Parts_Base
     private bool parent_player;
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (attaching)
         {
@@ -63,8 +63,11 @@ public class Parts_Shoes : Parts_Base
         if (attaching)
         {
             // 移動速度、通常攻撃力を元に戻す
-            transform.root.GetComponent<Character_Base>().Speed_Change(1f);
-            transform.root.GetComponent<Character_Base>().Attack_Change(1f);
+            if (transform.root.GetComponent<Character_Base>())
+            {
+                transform.root.GetComponent<Character_Base>().Speed_Change(1f);
+                transform.root.GetComponent<Character_Base>().Attack_Change(1f);
+            }
         }
     }
 }

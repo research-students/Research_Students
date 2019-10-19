@@ -6,6 +6,7 @@ public class Parts_UIMovement : MonoBehaviour
 {
     [SerializeField] float limit_mag;
     [SerializeField] float return_speed;
+    [SerializeField] bool  can_delete;
 
     private GameObject other_parts;
     private bool       touch;
@@ -42,8 +43,20 @@ public class Parts_UIMovement : MonoBehaviour
             // 他パーツと触れていないのでチェンジではない
             if (other_parts == null)
             {
-                // Parts_Imageを破棄する
-                transform.GetChild(0).GetComponent<Parts_Image>().Delete();
+                if (can_delete)
+                {
+                    // Parts_Imageを破棄する
+                    transform.GetChild(0).GetComponent<Parts_Image>().Delete();
+                }
+            }
+            else
+            {
+                // ゴミ箱に触れていたら
+                if (other_parts.name == "Garbage_Can")
+                {
+                    // Parts_Imageを破棄する
+                    transform.GetChild(0).GetComponent<Parts_Image>().Delete();
+                }
             }
         }
     }

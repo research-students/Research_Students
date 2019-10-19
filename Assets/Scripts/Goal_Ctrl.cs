@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class Goal_Ctrl : MonoBehaviour
 {
-    [SerializeField] Player_Ctrl player_ctrl;
-    [SerializeField] GameObject  clear_ui;
-    [SerializeField] Kill_Count  kill_count;
-    [SerializeField] int         kill_count_limit;
+    [SerializeField] int kill_count_limit;
 
     private Collider col;
+    private bool     clear;
 
 
     void Start()
@@ -27,8 +25,12 @@ public class Goal_Ctrl : MonoBehaviour
         {
             return;
         }
+        if (this.col.isTrigger)
+        {
+            return;
+        }
 
-        if (kill_count.Kill_Num() >= kill_count_limit)
+        if (GameObject.Find("Kill_Count").GetComponent<Kill_Count>().Kill_Num() >= kill_count_limit)
         {
             // ゴールを開放
             this.col.isTrigger = true;
@@ -45,18 +47,17 @@ public class Goal_Ctrl : MonoBehaviour
         {
             return;
         }
-        if (clear_ui.activeSelf)
+        if (clear)
         {
             return;
         }
 
-        if (kill_count.Kill_Num() >= kill_count_limit)
+        if (GameObject.Find("Kill_Count").GetComponent<Kill_Count>().Kill_Num() >= kill_count_limit)
         {
-            // クリア : 仮演出
-            player_ctrl.Clear();
+            clear = true;
 
-            // クリア : 仮演出
-            clear_ui.SetActive(true);
+            // クリア演出
+            GameObject.Find("Player").GetComponent<Player_Ctrl>().Clear();
         }
     }
 }

@@ -22,7 +22,7 @@ public class Enemy_Ctrl : Character_Base
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         // 走る
         // Run(Input.GetAxis("Horizontal"));

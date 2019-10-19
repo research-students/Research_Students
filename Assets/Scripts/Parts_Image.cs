@@ -9,13 +9,12 @@ public class Parts_Image : MonoBehaviour
     [SerializeField] Slider     life_ui;
 
     private Parts_Base parts_base;
-    private Transform  body;
 
 
     //-----------
     // 初期設定
     //-----------
-    public void Init(Transform parts_changer, Transform body)
+    public void Init(Transform parts_changer, Transform body, int life = 0)
     {
         transform.SetParent(parts_changer);
 
@@ -23,7 +22,28 @@ public class Parts_Image : MonoBehaviour
 
         parts_changer.tag = tag;
 
-        this.body = body;
+        if (life != 0)
+        {
+            life_ui.value = life;
+        }
+    }
+
+
+    //-------------
+    // 名前を返す
+    //-------------
+    public string Get_Name()
+    {
+        return prefab.name;
+    }
+
+
+    //---------------
+    // ライフを返す
+    //---------------
+    public int Get_Life()
+    {
+        return (int)life_ui.value;
     }
 
 
@@ -50,7 +70,7 @@ public class Parts_Image : MonoBehaviour
         parts_base = Instantiate(prefab);
 
         // Bodyにアタッチ
-        parts_base.Attach(body, this);
+        parts_base.Attach(GameObject.Find("Player_Body_" + tag).transform, this);
     }
 
 

@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Player_Ctrl : Character_Base
 {
-    [SerializeField] Transform[] bodys;
-    [SerializeField] float       jump_power;
-    [SerializeField] float       jump_max_height;
+    [SerializeField] GameFlow_CoverScene cover_gameover;
+    [SerializeField] GameFlow_CoverScene cover_gameclear;
+    [SerializeField] GameFlow_CoverScene cover_bug_avoidance;
+    [SerializeField] Data_Manager        data_manager;
+    [SerializeField] Transform[]         bodys;
+    [SerializeField] RectTransform[]     bodys_UI;
+    [SerializeField] RectTransform[]     slots_UI;
+    [SerializeField] float               jump_power;
+    [SerializeField] float               jump_max_height;
 
     private bool stop;
 
@@ -172,6 +178,15 @@ public class Player_Ctrl : Character_Base
     public void Clear()
     {
         stop = true;
+
+        // ゲームクリアシーンを重ねる
+        cover_gameclear.Cover();
+        
+        // 所持中のパーツを保存
+        data_manager.Save_Parts(Data_Manager.CATEGORY.BP, Data_Manager.STATE.NAME, bodys_UI);
+        data_manager.Save_Parts(Data_Manager.CATEGORY.BP, Data_Manager.STATE.LIFE, bodys_UI);
+        data_manager.Save_Parts(Data_Manager.CATEGORY.SP, Data_Manager.STATE.NAME, slots_UI);
+        data_manager.Save_Parts(Data_Manager.CATEGORY.SP, Data_Manager.STATE.LIFE, slots_UI);
     }
 
 
@@ -189,6 +204,9 @@ public class Player_Ctrl : Character_Base
                 bodys[i].GetChild(0).GetComponent<Parts_Base>().Drop();
             }
         }
+
+        // ゲームオーバーシーンを重ねる
+        cover_gameover.Cover();
 
         GameObject.Find("Player_Model").transform.Translate(Vector3.down * 0.5f);
         GameObject.Find("Player_Model").transform.Rotate(Vector3.left * 90f);

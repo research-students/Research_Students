@@ -8,6 +8,15 @@ public class Parts_Changer : MonoBehaviour
     private Transform child;
 
 
+    void Start()
+    {
+        if (transform.childCount != 0)
+        {
+            tag = transform.GetChild(0).tag;
+        }
+    }
+
+
     void Update()
     {
         // 指を離したらパーツを入れ替える
@@ -17,7 +26,7 @@ public class Parts_Changer : MonoBehaviour
             {
                 return;
             }
-
+            
             // slotとbodyのパーツの入れ替えなら
             if (gameObject.layer != parent.gameObject.layer)
             {
@@ -69,8 +78,13 @@ public class Parts_Changer : MonoBehaviour
     //---------------------------------
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.name == "Garbage_Can")
+        {
+            return;
+        }
+
         parent = other.transform.parent;
-        child  = other.transform;
+        child = other.transform;
     }
 
 
@@ -79,6 +93,11 @@ public class Parts_Changer : MonoBehaviour
     //-------------------------
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.name == "Garbage_Can")
+        {
+            return;
+        }
+
         parent = null;
         child  = null;
     }
