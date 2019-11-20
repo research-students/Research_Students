@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Researchers", "Researchers.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Researchers", "Researchers.csproj", "{061D3312-5B26-CE5A-BC36-31FCEE646BDA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Researchers", "Researchers.csproj", "{061D3312-5B26-CE5A-BC36-31FCEE646BDA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Researchers.Editor", "Researchers.Editor.csproj", "{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Researchers.Editor", "Researchers.Editor.csproj", "{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Researchers.Editor", "Researchers.Editor.csproj", "{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}"
@@ -31,6 +35,14 @@ Global
 		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{061D3312-5B26-CE5A-BC36-31FCEE646BDA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E7B4BFD-12E2-DD20-46A5-6B2FD708D1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
