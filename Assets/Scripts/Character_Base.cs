@@ -12,13 +12,13 @@ public class Character_Base : MonoBehaviour
     [SerializeField] float     attack_power;
     [SerializeField] float     attack_power_strong;
 
-    protected Rigidbody rigid;
-    protected Vector3   movement;
-    protected bool      landing;
-    private   bool      invincible;
-    private   float     speed;
-    private   float     attack;
-
+    protected Rigidbody  rigid;
+    protected Vector3    movement;
+    protected GameObject landing;
+    private   bool       invincible;
+    private   float      speed;
+    private   float      attack;
+    private   float      kick_power;
 
     void Awake()
     {
@@ -32,13 +32,13 @@ public class Character_Base : MonoBehaviour
     {
         movement.y = rigid.velocity.y;
 
-        if (landing) 
+        if (Get_Landing()) 
         {
             rigid.AddForce(Vector3.forward * movement.z * run_speed);
 
             rigid.velocity *= run_friction;
         }
-
+        
         movement.z *= run_friction;
     }
 
@@ -62,7 +62,10 @@ public class Character_Base : MonoBehaviour
     //-----------
     public virtual void Attack()
     {
+        // kickモーション再生
         Debug.Log("キック---攻撃力: " + (attack_power * attack));
+
+        kick_power = attack_power * attack;
     }
 
 
@@ -71,7 +74,10 @@ public class Character_Base : MonoBehaviour
     //------------------
     public virtual void Attack_Strong()
     {
+        // kickモーション再生
         Debug.Log("強いキック---攻撃力: " + (attack_power_strong * attack));
+
+        kick_power = attack_power_strong * attack;
     }
 
 
@@ -93,10 +99,19 @@ public class Character_Base : MonoBehaviour
     }
 
 
+    //-----------------
+    // キック力を返す
+    //-----------------
+    public float Get_Kick_Power()
+    {
+        return kick_power;
+    }
+
+
     //-------------
     // HPを減らす
     //-------------
-    public void HP_Sub(int damage)
+    public void HP_Sub(float damage)
     {
         if (invincible)
         {
@@ -144,7 +159,12 @@ public class Character_Base : MonoBehaviour
     //-----------------
     public bool Get_Landing()
     {
-        return landing;
+        if (landing)
+        {
+            return true;
+        }
+
+        return false;
     }
 
 
@@ -169,7 +189,7 @@ public class Character_Base : MonoBehaviour
     //-------------------------
     private void OnTriggerStay(Collider other)
     {
-        landing = true;
+        landing = other.gameObject;
     }
 
 
@@ -178,6 +198,6 @@ public class Character_Base : MonoBehaviour
     //-----------------------
     private void OnTriggerExit(Collider other)
     {
-        landing = false;
+        landing = null;
     }
 }

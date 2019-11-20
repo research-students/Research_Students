@@ -16,6 +16,7 @@ TagManager:
   - Enemy
   - Enemy_Attack
   - Goal
+  - Destruction_Object
   layers:
   - Default
   - TransparentFX

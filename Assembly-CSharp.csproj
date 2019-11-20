@@ -60,11 +60,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Attack.cs" />
     <Compile Include="Assets\Scripts\Camera_ChangePoint.cs" />
     <Compile Include="Assets\Scripts\CameraWork_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Character_Base.cs" />
     <Compile Include="Assets\Scripts\Data_Manager.cs" />
+    <Compile Include="Assets\Scripts\Destruction_Object.cs" />
     <Compile Include="Assets\Scripts\Enemy_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Enemy_Parts_Manager.cs" />
     <Compile Include="Assets\Scripts\GameFlow_CoverScene.cs" />
@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\GameFlow_ReloadScene.cs" />
     <Compile Include="Assets\Scripts\GameFlow_Spawn.cs" />
     <Compile Include="Assets\Scripts\Garage.cs" />
+    <Compile Include="Assets\Scripts\Gimmick_Mine.cs" />
     <Compile Include="Assets\Scripts\Goal_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Kill_Count.cs" />
     <Compile Include="Assets\Scripts\MouseAction_Drag.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Assets\Scripts\Parts_UIMovement.cs" />
     <Compile Include="Assets\Scripts\Parts_UISlotCtrl.cs" />
     <Compile Include="Assets\Scripts\Parts_Wing.cs" />
+    <Compile Include="Assets\Scripts\Player_Attack.cs" />
     <Compile Include="Assets\Scripts\Player_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Scroller.cs" />
     <None Include="Assets\Animations\README.txt" />

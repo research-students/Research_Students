@@ -52,6 +52,13 @@ public class Parts_Gun_Bullet : MonoBehaviour
                 tmp.HP_Sub(damage);
             }
         }
+        if (col.gameObject.tag == "Destruction_Object")
+        {
+            Destruction_Object tmp = col.gameObject.GetComponent<Destruction_Object>();
+
+            // Playerが触れた時のみダメージを与える
+            tmp.Life_Sub(damage, transform.root.tag);
+        }
 
         // 消滅
         Destroy(gameObject);

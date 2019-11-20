@@ -17,36 +17,12 @@ public class Player_Ctrl : Character_Base
     private bool stop;
 
 
-    //-------
-    // 走る
-    //-------
-    public override void Run(float amount)
-    {
-        if (stop) return;
-
-        base.Run(amount);
-    }
-
-
-    //-----------
-    // 通常攻撃
-    //-----------
-    public override void Attack()
-    {
-        if (stop) return;
-
-        base.Attack();
-    }
-
-
     //-----------
     // ジャンプ
     //-----------
     public void Jump(float amount)
     {
-        if (stop) return;
-
-        if (landing)
+        if (Get_Landing())
         {
             amount *= jump_power;
 
@@ -67,8 +43,6 @@ public class Player_Ctrl : Character_Base
     //----------------------
     public void Action_Tap()
     {
-        if (stop) return;
-
         if (bodys[1].childCount == 0)
         {
             Attack();
@@ -90,8 +64,6 @@ public class Player_Ctrl : Character_Base
     //----------------------------
     public void Action_LongTap()
     {
-        if (stop) return;
-
         if (bodys[1].childCount == 0)
         {
             Attack_Strong();
@@ -113,8 +85,6 @@ public class Player_Ctrl : Character_Base
     //----------------------------
     public void Action_LongStay(bool flag)
     {
-        if (stop) return;
-
         if (bodys[1].childCount != 0)
         {
             Parts_Shield parts_shield = bodys[1].GetChild(0).GetComponent<Parts_Shield>();
@@ -135,8 +105,6 @@ public class Player_Ctrl : Character_Base
     //------------------------
     public void Action_Flick(Vector3 dir)
     {
-        if (stop) return;
-
         Change_Direction(dir.x);
 
         if (Mathf.Pow(dir.y, 2) > Mathf.Pow(dir.x, 2))

@@ -109,5 +109,13 @@ public class Parts_Shield : Parts_Base
             // ダメージを与える
             col.transform.root.GetComponent<Character_Base>().HP_Sub(damage);
         }
+
+        if (col.gameObject.tag == "Destruction_Object")
+        {
+            Destruction_Object tmp = col.gameObject.GetComponent<Destruction_Object>();
+
+            // Playerが触れた時のみダメージを与える
+            tmp.Life_Sub(damage, transform.root.tag);
+        }
     }
 }

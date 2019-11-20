@@ -107,7 +107,7 @@ public class Enemy_Ctrl : Character_Base
     //-----------
     private void Jump()
     {
-        if (landing)
+        if (Get_Landing())
         {
             Vector3 force = Vector3.up * jump_power;
 

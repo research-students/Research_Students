@@ -267,7 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: Scene_Customize
   limit_time: 60
-  limit_dis: 0
+  limit_dis: 25
 --- !u!114 &219615876
 MonoBehaviour:
   m_ObjectHideFlags: 0
