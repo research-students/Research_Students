@@ -16,9 +16,16 @@ public class Parts_Shield : Parts_Base
     {
         if (rush)
         {
-            Action2(true, 0);
+            if (transform.root.tag == "Player")
+            {
+                Action2(true, 0);
 
-            character.Run(transform.forward.z * speed);
+                character.Run(transform.forward.z * speed);
+            }
+            else
+            {
+                Action2(false, 0);
+            }
         }
     }
 
@@ -38,8 +45,6 @@ public class Parts_Shield : Parts_Base
     public override void Action1(bool life_sub, int adj)
     {
         base.Action1(life_sub, adj);
-
-        Debug.Log("ガード");
     }
 
 
@@ -73,14 +78,11 @@ public class Parts_Shield : Parts_Base
     //-----------------------
     // 攻撃パーツと触れたら
     //-----------------------
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "Enemy_Attack" || col.gameObject.tag == "Player_Attack")
+        if (col.gameObject.tag == "Player_Attack")
         {
-            if (tag == "Player")
-            {
-                base.Action1(true, 0);
-            }
+            transform.root.GetComponent<Character_Base>().HP_Sub(col.transform.GetComponent<Attack_Base>().Get_Damage() / 2f);
         }
     }
 
@@ -101,8 +103,10 @@ public class Parts_Shield : Parts_Base
 
         if (col.tag == "Enemy" || col.tag == "Player")
         {
-            force.z *= transform.forward.z;
+            Vector3 force = this.force;
 
+            force.z *= transform.forward.z;
+            
             // 吹っ飛ばす
             col.transform.root.GetComponent<Rigidbody>().AddForce(force, ForceMode.Impulse);
 

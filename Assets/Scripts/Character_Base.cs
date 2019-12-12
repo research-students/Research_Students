@@ -12,19 +12,21 @@ public class Character_Base : MonoBehaviour
     [SerializeField] float     attack_power;
     [SerializeField] float     attack_power_strong;
 
-    protected Rigidbody  rigid;
-    protected Vector3    movement;
-    protected GameObject landing;
-    private   bool       invincible;
-    private   float      speed;
-    private   float      attack;
-    private   float      kick_power;
+    protected Rigidbody           rigid;
+    protected Vector3             movement;
+    protected GameObject          landing;
+    private   Enemy_Parts_Manager enemy_parts_manager;
+    private   bool                invincible;
+    private   float               speed;
+    private   float               attack;
+    private   float               kick_power;
 
     void Awake()
     {
-        rigid  = GetComponent<Rigidbody>();
-        speed  = 1f;
-        attack = 1f;
+        rigid               = GetComponent<Rigidbody>();
+        enemy_parts_manager = GetComponent<Enemy_Parts_Manager>();
+        speed               = 1f;
+        attack              = 1f;
     }
 
 
@@ -116,6 +118,18 @@ public class Character_Base : MonoBehaviour
         if (invincible)
         {
             return;
+        }
+
+        if (tag == "Enemy")
+        {
+            // 盾を持ってたらダメージを半減する
+            if (enemy_parts_manager.Get_Parts(1))
+            {
+                if (enemy_parts_manager.Get_Parts(1).GetComponent<Parts_Base>().Get_Type() == "Shield")
+                {
+                    damage /= 2f;
+                }
+            }
         }
 
         hp_ui.value -= damage;

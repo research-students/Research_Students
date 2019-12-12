@@ -19,8 +19,19 @@ public class Enemy_Parts_Manager : MonoBehaviour
                 parts[i] = bodys[i].GetChild(0).GetComponent<Parts_Base>();
 
                 parts[i].Attach(bodys[i]);
+
+                Add_PartsController(parts[i]);
             }
         }
+    }
+
+
+    //---------------------
+    // 指定のパーツを返す
+    //---------------------
+    public Transform Get_Parts(int i)
+    {
+        return parts[i].transform;
     }
 
 
@@ -54,6 +65,43 @@ public class Enemy_Parts_Manager : MonoBehaviour
     }
 
 
+    //-----------------------------------
+    // パーツを使用するスクリプトを追加
+    //-----------------------------------
+    private void Add_PartsController(Parts_Base parts)
+    {
+        if (parts.Get_Type() == "Type_Hand")
+        {
+            if (parts.Get_Parts_Type() == "Gun")
+            {
+                gameObject.AddComponent<SoldierAction_Gun>().Init(this);
+            }
+            if (parts.Get_Parts_Type() == "Shield")
+            {
+                gameObject.AddComponent<SoldierAction_Shield>().Init(this);
+            }
+        }
+        if (parts.Get_Type() == "Type_Shld")
+        {
+            if (parts.Get_Parts_Type() == "Wing")
+            {
+                gameObject.AddComponent<SoldierAction_Wing>().Init(this);
+            }
+            if (parts.Get_Parts_Type() == "Tail")
+            {
+                gameObject.AddComponent<SoldierAction_Tail>().Init(this);
+            }
+        }
+        if (parts.Get_Type() == "Type_Foot")
+        {
+            if (parts.Get_Parts_Type() == "Shoes")
+            {
+                //gameObject.AddComponent<SoldierAction_Foot>().Init(this);
+            }
+        }
+    }
+
+
     //-----------------------
     // パーツに触れていたら
     //-----------------------
@@ -82,6 +130,9 @@ public class Enemy_Parts_Manager : MonoBehaviour
             {
                 // アタッチ
                 parts[i].Attach(bodys[i]);
+
+                // パーツを使用するスクリプトを追加
+                Add_PartsController(parts[i]);
             }
         }
     }

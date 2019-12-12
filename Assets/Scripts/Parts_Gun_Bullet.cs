@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Parts_Gun_Bullet : MonoBehaviour
+public class Parts_Gun_Bullet : Attack_Base
 {
     [SerializeField] float speed;
-    [SerializeField] int   damage;
 
 
     void Start()
@@ -35,7 +34,7 @@ public class Parts_Gun_Bullet : MonoBehaviour
     //---------------------
     // 銃以外と衝突したら
     //---------------------
-    private void OnCollisionEnter(Collision col)
+    private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.name.Contains("Parts_Gun"))
         {
@@ -49,7 +48,7 @@ public class Parts_Gun_Bullet : MonoBehaviour
             if (tmp)
             {
                 // ダメージを与える
-                tmp.HP_Sub(damage);
+                tmp.HP_Sub(Get_Damage());
             }
         }
         if (col.gameObject.tag == "Destruction_Object")
@@ -57,10 +56,13 @@ public class Parts_Gun_Bullet : MonoBehaviour
             Destruction_Object tmp = col.gameObject.GetComponent<Destruction_Object>();
 
             // Playerが触れた時のみダメージを与える
-            tmp.Life_Sub(damage, transform.root.tag);
+            tmp.Life_Sub(Get_Damage(), transform.root.tag);
         }
 
-        // 消滅
-        Destroy(gameObject);
+        if (gameObject.layer != col.gameObject.layer)
+        {
+            // 消滅
+            Destroy(gameObject);
+        }
     }
 }

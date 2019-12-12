@@ -5,13 +5,17 @@ using UnityEngine;
 public class Enemy_Ctrl : Character_Base
 {
     [SerializeField] Enemy_Parts_Manager parts_manager;
-    [SerializeField] Parts_Base[]        parts;
-    [SerializeField] Parts_Base          drop_parts;
-    [SerializeField] float               jump_power;
+    [SerializeField] Parts_Base[] parts;
+    [SerializeField] Parts_Base drop_parts;
+    [SerializeField] float jump_power;
+
+    private Transform player;
 
 
     void Start()
     {
+        player = GameObject.Find("Player").transform;
+
         for (int i = 0; i < parts.Length; i++)
         {
             if (parts[i])
@@ -22,74 +26,13 @@ public class Enemy_Ctrl : Character_Base
     }
 
 
-    void FixedUpdate()
+    void Update()
     {
-        // 走る
-        // Run(Input.GetAxis("Horizontal"));
-        transform.Translate(Vector3.forward * 0.001f);
+        float x = player.position.z - transform.position.z;
+        float y = player.position.y - transform.position.y;
+        float r = Mathf.Atan2(y, x);
 
-        // アクション1 : Hand
-        if (Input.GetKeyDown("z"))
-        {
-            if (parts_manager.Get_Equipping(1))
-            {
-                parts_manager.Action(1, 1);
-            }
-        }
-        // アクション1 : Hand2
-        if (Input.GetKeyDown("a"))
-        {
-            if (parts_manager.Get_Equipping(1))
-            {
-                parts_manager.Action(1, 2);
-            }
-        }
-
-        // アクション2 : Shld
-        if (Input.GetKeyDown("x"))
-        {
-            if (parts_manager.Get_Equipping(2))
-            {
-                parts_manager.Action(2, 1);
-            }
-            else
-            {
-                Jump();
-            }
-        }
-        // アクション2: Shld
-        if (Input.GetKeyDown("c"))
-        {
-            if (parts_manager.Get_Equipping(2))
-            {
-                Change_Direction(-1f);
-
-                parts_manager.Action(2, 2);
-            }
-            else
-            {
-                Jump();
-            }
-        }
-        // アクション2: Shld
-        if (Input.GetKeyDown("v"))
-        {
-            if (parts_manager.Get_Equipping(2))
-            {
-                Change_Direction(1f);
-
-                parts_manager.Action(2, 2);
-            }
-            else
-            {
-                Jump();
-            }
-        }
-        // アクション3: Foot
-        if (Input.GetKeyDown("b"))
-        {
-            Attack();
-        }
+        Run(Mathf.Cos(r));
     }
 
 
@@ -129,5 +72,14 @@ public class Enemy_Ctrl : Character_Base
 
         // 消滅
         Destroy(gameObject);
+    }
+
+
+    //---------------
+    // Playerを返す
+    //---------------
+    public Transform Get_Player()
+    {
+        return player;
     }
 }

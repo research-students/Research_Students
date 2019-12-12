@@ -7,7 +7,7 @@ public class Parts_Wing : Parts_Base
     [SerializeField] Vector3 force1;
     [SerializeField] Vector3 force2;
 
-    
+
     //--------------
     // アクション1
     //--------------

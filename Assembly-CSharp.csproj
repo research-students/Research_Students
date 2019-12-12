@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Attack_Base.cs" />
     <Compile Include="Assets\Scripts\Camera_ChangePoint.cs" />
     <Compile Include="Assets\Scripts\CameraWork_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Character_Base.cs" />
@@ -99,7 +100,14 @@
     <Compile Include="Assets\Scripts\Player_Attack.cs" />
     <Compile Include="Assets\Scripts\Player_Ctrl.cs" />
     <Compile Include="Assets\Scripts\Scroller.cs" />
+    <Compile Include="Assets\Scripts\SoldierAction_Gun.cs" />
+    <Compile Include="Assets\Scripts\SoldierAction_Hand.cs" />
+    <Compile Include="Assets\Scripts\SoldierAction_Shield.cs" />
+    <Compile Include="Assets\Scripts\SoldierAction_Shoes.cs" />
+    <Compile Include="Assets\Scripts\SoldierAction_Tail.cs" />
+    <Compile Include="Assets\Scripts\SoldierAction_Wing.cs" />
     <None Include="Assets\Animations\README.txt" />
+    <None Include="Assets\Import Package\Sci-Fi Styled Modular Pack\Readme.txt" />
     <None Include="Assets\Fonts\README.txt" />
     <None Include="Assets\Physics Materials\README.txt" />
     <None Include="Assets\Materials\README.txt" />
@@ -115,6 +123,12 @@
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
       <HintPath>D:/Project Data/Unity Project/Research_Students/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Editor">
+      <HintPath>D:/Project Data/Unity Project/Research_Students/Library/ScriptAssemblies/Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="XiaomiSupport">
+      <HintPath>D:/Project Data/Unity Project/Research_Students/Library/ScriptAssemblies/XiaomiSupport.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>D:/Project Data/Unity Project/Research_Students/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -331,6 +345,12 @@
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
       <HintPath>D:/Project Data/Unity Project/Research_Students/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+    </Reference>
+    <Reference Include="ChannelPurchase">
+      <HintPath>D:/Project Data/Unity Project/Research_Students/Library/PackageCache/com.unity.xiaomi@1.0.3/ChannelPurchase.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityStore">
+      <HintPath>D:/Project Data/Unity Project/Research_Students/Library/PackageCache/com.unity.xiaomi@1.0.3/UnityStore.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/Software/Unity/Unity2018_2/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>

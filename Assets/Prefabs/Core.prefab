@@ -3037,9 +3037,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 10
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 10
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3345,6 +3345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp_ui: {fileID: 4778827176280113482}
   model: {fileID: 4778827176441482044}
+  check_landing: 1
   run_speed: 1
   run_friction: 0.85
   attack_power: 1

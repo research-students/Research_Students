@@ -23,11 +23,14 @@ public class Parts_Base : MonoBehaviour
         transform.position = body.position;
         transform.rotation = body.rotation;
 
-        GetComponent<Rigidbody>().isKinematic = true;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition |
+                                                RigidbodyConstraints.FreezeRotation;
+        GetComponent<Collider>().isTrigger    = true;
 
         // グループを有効化
         gameObject.tag   = body.root.tag;
         gameObject.layer = body.gameObject.layer + 1;
+        transform.GetChild(0).gameObject.layer = gameObject.layer;
 
         if (parts_type == "Shield")
         {
@@ -60,6 +63,15 @@ public class Parts_Base : MonoBehaviour
     }
 
 
+    //---------------------
+    // 自分のタイプを返す
+    //---------------------
+    public string Get_Type()
+    {
+        return type;
+    }
+
+
     //---------------------------
     // 自分のパーツタイプを返す
     //---------------------------
@@ -85,7 +97,9 @@ public class Parts_Base : MonoBehaviour
     {
         transform.parent = null;
 
-        GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX |
+                                                RigidbodyConstraints.FreezeRotation;
+        GetComponent<Collider>().isTrigger    = false;
 
         // 飛ばす方向をセット
         Vector3 fly_vec = Vector3.up + (Vector3.forward * Random.Range(-1f, 1f));
@@ -96,6 +110,7 @@ public class Parts_Base : MonoBehaviour
         // グループを無効化
         gameObject.tag   = type;
         gameObject.layer = LayerMask.NameToLayer("Parts");
+        transform.GetChild(0).gameObject.layer = LayerMask.NameToLayer("Default");
     }
 
 
